@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon-17e50649.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta name="description" content="Organiza las películas o series que deseas ver">
+    <meta property="og:title" content="Movie List"> 
+    <meta property="og:type" content="website">
+  
+    <!-- <meta property="og:url" content="">
+    <meta property="og:image" content=""> -->
+
+    <!-- <link rel="manifest" href="site.webmanifest">
+    <link rel="apple-touch-icon" href="icon.png"> -->
+    <!-- Place favicon.ico in the root directory -->    
+
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&family=Roboto&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet"> -->
+    <meta name="theme-color" content="#fafafa">
+
+    <title>MovieList</title>
+    <script type="module" crossorigin src="/assets/app.4fd6bb21.js"></script>
+    <link rel="stylesheet" href="/assets/app-9e134ff4.css">
+  </head>
+  <body class="page-cartelera">
+   
+    <header class="header">
+
+      <div class="header__wrapper container">
+  
+        <div class="marca">
+          <div class="marca_logo">
+            
+          </div>
+          <p class="marca_texto">
+            Movie <span class="marca_resaltar">List</span>
+          </p>
+          
+        </div>          
+  
+        <input type="checkbox" id="menu-input">
+  
+        <nav class="menu">
+          <a href="./index.html">Inicio</a>
+          <a href="./cartelera.html">Cartelera</a>
+          <a href="#">Mi Lista</a>
+          <a href="#">About Us</a>
+        </nav>
+
+        <!-- <div class="lista-peliculas">
+          <img src="/img/movie-play.svg" alt="lista-peliculas" srcset="">
+        </div>      -->
+        
+        <label for="menu-input" class="menu-label">
+          <img src="/img/bx-menu.svg" alt="Menu" srcset="">
+        </label>
+  
+      </div>
+  
+    </header>
+
+    <div class="portada">
+
+        <div class="portada__wrapper container sm:container grid" >
+
+          <h2 class="portada__titulo">Cartelera</h2>
+
+        </div>
+
+    </div>
+
+      
+    
+    <div class="cartelera">      
+
+      <div class="caja-busqueda container">
+                  
+        <form id="formulario" action="#" method="POST">
+
+          <input class="formulario__inputSearch" type="search" name="busquedamusica" placeholder="Pelicula, Serie...">
+          <input  class="formulario__submit" type="submit" value="Buscar">
+      
+        </form>
+
+        <div>
+          <input type="radio" name="seriePelicula" id="" value="pelicula" checked> Pelicula
+          <input type="radio" name="seriePelicula" id="" value="serie"> Serie
+        </div>
+        <div>
+          <input type="radio" name="contenidoAdulto" id="" value="true"> Contenido Adulto
+        </div>
+
+
+      </div>
+
+      <div class="resultados container grid place-items-center md:place-items-start sm:grid-cols-3 lg:grid-cols-5 gap-y-6"> 
+
+      </div>
+
+    </div>
+
+    
+    
+  </body>
+</html>
