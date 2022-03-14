@@ -125,7 +125,7 @@ document.querySelector(".formulario__submit");
 document.querySelector("input[name='seriePelicula']");
 document.querySelector("input[name='contenidoAdulto']");
 document.addEventListener("DOMContentLoaded", function() {
-    if (location.href == "http://localhost:4173/") {
+    if (location.href == "https://movielistd.netlify.app/") {
         pedirPopulares("inicio");
     }
     if (location.href == "http://localhost:4173/cartelera.html") {
