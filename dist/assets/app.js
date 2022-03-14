@@ -50,37 +50,72 @@ class Ui {
       resultadosMovie.removeChild(resultadosMovie.firstElementChild);
     }
   }
-  mostrarCartelera(datos) {
+  mostrarCartelera(datos, ubicacion) {
     console.log(datos);
     let datosRevisados = datos.filter((e) => e.poster_path != null);
-    datosRevisados.forEach((movie) => {
-      let { title, id, poster_path, release_date } = movie;
-      let imgMovie = "https://image.tmdb.org/t/p/w500/" + poster_path;
-      resultadosMovie.insertAdjacentHTML("afterbegin", `
+    if (ubicacion == "inicio") {
+      datosRevisados = datosRevisados.slice(0, 10);
+      console.log(datosRevisados);
+      let catalogoPopulares = document.querySelector(".b-popular__catalogo-pelicula");
+      console.log("Hola Aqui");
+      datosRevisados.forEach((movie) => {
+        let { title, id, poster_path, release_date } = movie;
+        let imgMovie = "https://image.tmdb.org/t/p/w500/" + poster_path;
+        catalogoPopulares.insertAdjacentHTML("afterbegin", `
             
-                <div class="box-pelicula">            
-                    <a class="box-pelicula__enlace" href="pelicula.html?id=${id}">                
-                        <div class="box-pelicula__img">
-                            <img src="${imgMovie}">                    
-                        </div>
-                    </a>
-    
-                    <div class="box-pelicula__text">                                
-                        <h5>${title}</h5>
-                        <p class="box-pelicula__date">${release_date}</p>                        
-                        </div>
-                </div>                        
+                    <div class="movie-catalog">     
+
+                        <div class="movie-catalog__add-list">
+                            +
+                        </div>       
+
+                        <a class="movie-catalog__link" href="pelicula.html?id=${id}">                
+                        
+                            <div class="movie-catalog__image">
+                                <img src="${imgMovie}">                    
+                            </div>
+        
+                            <div class="movie-catalog__text">                                
+                                <h5 class="movie-catalog__title">${title}</h5>
+                                <p class="movie-catalog__date">${release_date}</p>                        
+                            </div>
+
+                        </a>
+                    </div>                        
             
-            `);
-    });
+                `);
+      });
+    }
+    if (ubicacion == "cartelera") {
+      datosRevisados.forEach((movie) => {
+        let { title, id, poster_path, release_date } = movie;
+        let imgMovie = "https://image.tmdb.org/t/p/w500/" + poster_path;
+        resultadosMovie.insertAdjacentHTML("afterbegin", `
+                
+                    <div class="box-pelicula">            
+                        <a class="box-pelicula__enlace" href="pelicula.html?id=${id}">                
+                            <div class="box-pelicula__img">
+                                <img src="${imgMovie}">                    
+                            </div>
+                        </a>
+        
+                        <div class="box-pelicula__text">                                
+                            <h5>${title}</h5>
+                            <p class="box-pelicula__date">${release_date}</p>                        
+                            </div>
+                    </div>                        
+                
+                `);
+      });
+    }
   }
 }
 const ui = new Ui();
 const BASE_URL = "https://api.themoviedb.org/3";
 const API_KEY = "api_key=bc1ec0aeff28eba96fa4dc1b0c704b97";
 const API_URL_CARTELERA = BASE_URL + "/discover/movie?sort_by=popularity.desc&" + API_KEY;
-function pedirPopulares() {
-  fetch(API_URL_CARTELERA).then((response) => response.json()).then((movies) => ui.mostrarCartelera(movies.results));
+function pedirPopulares(ubicacion) {
+  fetch(API_URL_CARTELERA).then((response) => response.json()).then((movies) => ui.mostrarCartelera(movies.results, ubicacion));
 }
 function peticionAPI(titulo, seriePelicula, contenidoAdulto, date) {
   let API_URL = BASE_URL + `/search/${seriePelicula}?` + API_KEY + `&language=en-US&query=${titulo}&include_adult=${contenidoAdulto}&year=${date}`;
@@ -98,6 +133,12 @@ document.querySelector(".formulario__submit");
 let formularioInputSP = document.querySelector("input[name='seriePelicula']");
 let formularioInputAC = document.querySelector("input[name='contenidoAdulto']");
 document.addEventListener("DOMContentLoaded", function() {
+  if (location.href == "http://localhost:8080/") {
+    pedirPopulares("inicio");
+  }
+  if (location.href == "http://localhost:8080/cartelera.html") {
+    pedirPopulares("cartelera");
+  }
   if (pageCartelera.hidden == false)
     pedirPopulares();
   formulario.addEventListener("submit", tomarDatosFormulario);

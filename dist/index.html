@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon-17e50649.svg" />
+    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta name="description" content="Organiza las películas o series que deseas ver">
@@ -24,11 +24,30 @@
 
     <title>MovieList</title>
 
-    <script type="module" crossorigin src="/assets/app.4fd6bb21.js"></script>
-    <link rel="stylesheet" href="/assets/app-9e134ff4.css">
+    <script type="module" crossorigin src="/assets/app.js"></script>
+    <link rel="stylesheet" href="/assets/app.css">
   </head>
   <body>
-   
+
+
+    <!-- Menu Full Screen -->
+    <input type="checkbox" class="header__menu-burger-input" name="" id="menu-burger">
+  
+    <nav class="header__menu">
+      <div class="header__menu-close">
+        <label for="menu-burger" type="checkbox"  class="header__menu-burger">   
+          <img src="/assets/images/bx-close.svg" alt="close-menu">
+        </label>
+
+      </div>
+
+      <a href="#">Inicio</a>
+      <a href="/">Buscar</a>
+      <a href="#">About Us</a>
+    </nav>
+    <!-- Menu Full Screen -->
+
+
     <header class="header">
       <div class="header__wrapper">
 
@@ -39,21 +58,19 @@
   
         <label for="menu-burger" type="checkbox"  class="header__menu-burger">   
           
-          <svg xmlns='http://www.w3.org/2000/svg'  viewBox='0 0 24 24' fill='#ffffff' width='28' height='28'><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"></path></svg>
+          <img src="/assets/images/bx-menu.svg" alt="menu-open">
   
-        </label>
-  
-        <input type="checkbox" class="header__menu-burger-input" name="" id="menu-burger">
-  
-        <nav class="header__menu">
+        </label>     
+
+        <nav class="header__menu-desktop">
           <a href="#">Inicio</a>
-          <a href="#">Buscar</a>
+          <a href="/cartelera.html">Buscar</a>
           <a href="#">About Us</a>
-        </nav>
+        </nav>     
 
       </div>
 
-    </header>
+    </header>    
 
     <div class="heroe">
 
@@ -65,13 +82,59 @@
         <p>Peter Parker asume su nueva identidad como Spider-Man y regresa a vivir con su tía después de su aventura con los Vengadores. Al volver, mientras sigue bajo la tutela de Tony Stark, descubre que ha...</p>
 
         <div class="heroe__buttons">
-          <a href="#" class="btn-primary">Ver Ms</a>          
-          <button class="btn-secundary">Agregar</button>
+          <a href="#" class="btn-primary">
+            <span class="btn-primary__main-text">Ver Mas</span>
+            <span class="btn-primary__hover-icon">
+              <img src="/assets/images/bx-info.svg" alt="">
+            </span>
+            
+          </a>          
+          <button class="btn-secundary">
+            <span class="btn-secundary__main-text">Agregar</span>
+            <span class="btn-secundary__hover-icon">
+              <img src="/assets/images/bx-list-plus.svg" alt="">
+            </span>
+          </button>
         </div>
       </div>
 
-      <img src="/assets/images/spider-man_1280x960-56c97f51.png" alt="spider-man">
+      <img src="/assets/images/spider-man_1280x960.png" alt="spider-man">
+      
     </div>
+
+    <main class="main">
+
+      <div class="b-popular">
+
+        <h3 class="b-popular__title"><span></span>Mas populares
+        </h3>
+
+        <div class="b-popular__opciones">
+        
+          <input type="radio" class="" name="popular-o" id="popular-opcionP" checked> 
+          <label for="popular-opcionP" class="b-popular__opcion">   
+            Series
+          </label>
+
+          <input type="radio" class="" name="popular-o" id="popular-opcionS" > 
+          <label for="popular-opcionS" class="b-popular__opcion">  
+            Peliculas
+          </label>
+                   
+        </div>
+        <div class="b-popular__barra"></div>
+
+        <div class="b-popular__catalogo">
+
+          <div class="b-popular__catalogo-pelicula">
+            
+          </div>
+
+
+        </div>
+
+      </div>
+    </main>
     
     
   </body>
