@@ -16,7 +16,7 @@
     <link rel="apple-touch-icon" href="icon.png"> -->
     <!-- Place favicon.ico in the root directory -->    
 
-    <link href="https://fonts.googleapis.com/css2?family=Nunito&family=Roboto&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
 
     <!-- <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet"> -->
     <meta name="theme-color" content="#fafafa">
@@ -25,82 +25,103 @@
     <script type="module" crossorigin src="/assets/app.js"></script>
     <link rel="stylesheet" href="/assets/app.css">
   </head>
-  <body class="page-cartelera">
-   
-    <header class="header">
-
-      <div class="header__wrapper container">
+  <body>
   
-        <div class="marca">
-          <div class="marca_logo">
-            
-          </div>
-          <p class="marca_texto">
-            Movie <span class="marca_resaltar">List</span>
-          </p>
-          
-        </div>          
+    <!-- Menu Full Screen -->
+    <input type="checkbox" class="header__menu-burger-input" name="" id="menu-burger">
   
-        <input type="checkbox" id="menu-input">
-  
-        <nav class="menu">
-          <a href="./index.html">Inicio</a>
-          <a href="./cartelera.html">Cartelera</a>
-          <a href="#">Mi Lista</a>
-          <a href="#">About Us</a>
-        </nav>
-
-        <!-- <div class="lista-peliculas">
-          <img src="/img/movie-play.svg" alt="lista-peliculas" srcset="">
-        </div>      -->
-        
-        <label for="menu-input" class="menu-label">
-          <img src="/img/bx-menu.svg" alt="Menu" srcset="">
+    <nav class="header__menu">
+      <div class="header__menu-close">
+        <label for="menu-burger" type="checkbox"  class="header__menu-burger">   
+          <img src="/assets/images/bx-close.svg" alt="close-menu">
         </label>
-  
       </div>
-  
-    </header>
 
+      <a href="/index.html">Inicio</a>
+      <a href="/cartelera.html">Buscar</a>
+      <a href="#">About Us</a>
+    </nav>
+    <!-- Menu Full Screen -->
+
+    <header class="header">
+      <div class="header__wrapper">
+
+        <div class="header__marca">
+          <p>MovieList</p>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" style="fill: rgba(255, 214, 10, 1);transform: ;msFilter:;"><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"></path><path d="m9 17 8-5-8-5z"></path></svg>
+        </div>
+  
+        <label for="menu-burger" type="checkbox"  class="header__menu-burger">   
+          
+          <img src="/assets/images/bx-menu.svg" alt="menu-open" width="40" height="40">
+  
+        </label>     
+
+        <nav class="header__menu-desktop">
+          <a href="#">Inicio</a>
+          <a href="/cartelera.html">Buscar</a>
+          <a href="#">About Us</a>
+        </nav>     
+
+      </div>
+
+    </header>      
+      
     <div class="portada">
-
-        <div class="portada__wrapper container sm:container grid" >
-
-          <h2 class="portada__titulo">Cartelera</h2>
-
-        </div>
-
+      <h2>Busqueda</h2>
     </div>
 
-      
-    
-    <div class="cartelera">      
+    <div class="cartelera">
 
-      <div class="caja-busqueda container">
-                  
-        <form id="formulario" action="#" method="POST">
+      <div class="cartelera__wrapper">
 
-          <input class="formulario__inputSearch" type="search" name="busquedamusica" placeholder="Pelicula, Serie...">
-          <input  class="formulario__submit" type="submit" value="Buscar">
-      
-        </form>
+        <div class="caja-busqueda">
 
-        <div>
-          <input type="radio" name="seriePelicula" id="" value="pelicula" checked> Pelicula
-          <input type="radio" name="seriePelicula" id="" value="serie"> Serie
+          <div class="caja-busqueda__formulario-wrapper">
+
+            <form id="caja-busqueda__formulario" action="#" method="POST">    
+              <input class="caja-busqueda__inputSearch" type="search" name="busquedamusica" placeholder="Pelicula, Serie...">              
+              <button type="submit" class="btn-search">
+                <span class="btn-search__main-text">Buscar</span>
+                <span class="btn-search__hover-icon">
+                  <img src="/assets/images/bx-search-alt.svg" alt="">
+                </span>
+              </button>                        
+            </form>
+            <p class="mensaje-error">Busqueda Vacia. Agregue algun caracter</p>
+          </div>   
+  
+
+          <div class="caja-busqueda__opciones">
+            <label for="">
+              <input type="radio" name="seriePelicula" id="serie-pelicula" value="pelicula" checked> Pelicula
+            </label>
+
+            <label for="">
+              <input type="radio" name="seriePelicula" id="serie-pelicula" value="serie"> Serie          
+            </label>
+
+            <label for="">
+              Ordenar por:
+              <select name="ordenar">            
+                <option>Selecciona...</option>
+                <option value="a-up">Alfabetico (Ascendente)</option>              
+                <option value="a-down">Alfabetico (Descendente)</option>                           
+                <option value="f-up">Fecha (Ascendente)</option>                                         
+                <option value="f-down">Fecha (Descendente)</option>                            
+              </select>
+            </label>
+
+          </div>          
         </div>
-        <div>
-          <input type="radio" name="contenidoAdulto" id="" value="true"> Contenido Adulto
-        </div>
 
+        <div class="cartelera__resultado">
+
+        </div>        
 
       </div>
 
-      <div class="resultados container grid place-items-center md:place-items-start sm:grid-cols-3 lg:grid-cols-5 gap-y-6"> 
-
-      </div>
-
-    </div>
+    </div>        
 
     
     
